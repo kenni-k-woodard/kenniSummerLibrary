@@ -9,3 +9,8 @@ export async function getAllBooks() {
     const response = await client.from('kenniSummerLibrary').select();
     return response.data;
 }
+
+export async function getBook(id) {
+    const response = await client.from('kenniSummerLibrary').select().match({ id: id }).single();
+    return response.data;
+}
